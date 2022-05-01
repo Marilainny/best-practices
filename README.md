@@ -164,9 +164,9 @@ int fileAgeInDays;</code></pre>
 		verb = "Existem";
 		pluralModifier = "s";
 	}
-	String guessMessage = String.format(
-	"There %s %s %s%s, verb, number, candidate, pluralModifier");
-	print(guessMessage);}</code></pre>
+	String guessMessage = String.format("There %s %s %s%s, verb, number, candidate, pluralModifier");
+	print(guessMessage);
+}</code></pre>
 
 <h2>Exemplo variáveis que possuem contexto</h2>
 <pre><code>public class GuessStatisticsMessage{
@@ -176,9 +176,7 @@ int fileAgeInDays;</code></pre>
 	
 	public String make(char candidate, int count){
 		createPluralDependentMessageParts(count);
-		return String.format(
-		"There %s %s %s%s",
-		verb, number, candidate, pluralModifier);		
+		return String.format("There %s %s %s%s", verb, number, candidate, pluralModifier);
 	}
 	private void createPluralDependentMessageParts(int count){
 		if(count ==0){
