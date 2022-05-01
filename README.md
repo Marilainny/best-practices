@@ -48,7 +48,7 @@ int fileAgeInDays;</code></pre>
 <ul type="square">
     <li>Que tipos de coisas estão em theList?</li>
     <li>Qual a importância de um item na posição zero na theList?</li>
-    <li>Qual a importâncai do valor 4?</li>
+    <li>Qual a importância do valor 4?</li>
     <li>Como eu usaria a lista retornada?</li>
 </ul>
 </p>
