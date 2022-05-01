@@ -1,0 +1,454 @@
+/*
+*Código Limpo
+*	Habilidades Práticas do Agile Software
+*	autor: Robert Cecil Martin
+*	editora: Alta Books
+*/
+
+/*
+*Use nomes que revelem seu propósito
+*/
+
+int d; //tempo decorrido em dias
+
+int elapsedTimeInDays;
+int daysSinceCreation;
+int daysSinceModification;
+int fileAgeInDays;
+
+/*
+* Escolher nomes que revelem seu propósito
+*No exemplo abaixo:
+* que tipos de coisas estão em theList?
+* qual a importância de um item na posição zero na theList?
+* qual a importâncai do valor 4?
+* como eu usaria a lista retornada?
+*/
+
+public List<int[]> getThem {
+	List<int[]> list1 = new ArrayList<int[]>();
+	for (int[] x : theList)
+		if (x[0] ==4)
+			list1.add(x);
+	return list1;
+}
+
+/*
+*Evite informações Erradas
+* codigo acima refatorado.
+*/
+
+public List<int[]> getFlaggedCells(){
+	List<int[]> flaggedCells = new ArrayList<int[]>();
+	for (int[] cell : gameboard)
+		if (cell[STATUS_VALUE] == FLAGGED)
+			flaggedCells.add(cell);
+	return flaggedCells;
+}
+
+/*
+*Simplificando o código
+*/
+
+public List<Cell> getFlaggedCells(){
+	List<Cell> flaggedCells = new ArrayList<Cell>();
+	for (Cell cell : gameboard)
+			if (cell.isFlagged())
+				flaggedCells.add(cell);
+	return flaggedCells;		
+}
+/*
+*Faça Distinções significativas.
+*	use nomes pronunciáveis.
+*/
+public static void copyChars(char a1[], char a2[]){
+	for (int i = 0; i < a1.length; i++){
+		a2[i] = a1[i];
+	}
+}
+
+/*
+*Faça Distinções significativas.
+*	use nomes pronunciáveis.
+*/
+
+class DtaRcrd102 {
+	private Date genymdhms;
+	private Date modymdhms;
+	private final String pszqint = "102";	
+}
+
+class Customer{
+	private Date generationTimestamp;
+	private Date modificationTimestamp;
+	private final String recordId = "102";
+}
+
+/*
+*Use nomes passíveis de busca
+*/
+
+for (int j=0; j<34; j++){
+	s += (t[j]*4)/5;
+}
+
+int realDaysPerIdealDay = 4;
+const int WORK_DAYS_PER_WEEK = 5;
+int sum = 0;
+
+for (int j=0; j < NUMBER_OF_TASKS; j++){
+	int realTaskDays = taskEstimate[j] * realDaysPerIdealDay;
+	int realTaskWeeks = (realdays / WORK_DAYS_PER_WEEK);
+	sum += realTaskWeeks;
+}
+/*
+*Evite codificação
+*/
+public class Part {
+	private String m_dsc; //Descrição textual
+	void setName(String name){
+		m_dsc = name;
+	}
+}
+
+public class Part{
+	String description;
+	void setDescription(String description){
+		this.description = description;
+	}
+}
+
+/*
+*Nome de classes: devem ser substantivos: Cliente, PaginaWiki, Conta, e AnaliseEndereço.
+*Nome de métodos: devem ser verbos: postarPagamento, excluirPagina, salvar. 
+*/
+
+String name = employee.getName();
+customer.setName("mike");
+if (paycheck.isPosted()){
+	/*....*/
+}
+
+/*
+*Quando os construtores estiverem sobrecarregados, use métodos factory estáticos,
+*com nomes que descrevam os parâmetros. 
+*/
+Complex fulcrumPoint = Complex.FromRealNumber(23,0); // melhor
+
+Complex fulcrumPoint = new Complex(23,0); //
+
+/*
+*Evite gírias e brincadeiras com os nomes do código.
+*Selecione uma palavra por conceito.
+*Não faça trocadilhos.
+*Use nomes a partir do domínio da solução.
+*Use prefixo nas variaveis que formam um conjunto.
+*A solução as vezes é criar uma classe que engloba um conjunto de variáveis.
+*/
+public class Address{
+	String addrFirstName;
+	String addrLastName;
+	String addrState;
+}
+/*
+*Variáveis com contexto obscuro
+*/
+private void printGuessStatistica(char candidate, int count){
+	String number;
+	String verb;
+	String pluralModifier;
+	
+	if (count == 0){
+		number = "no";
+		verb = "Existem";
+		pluralModifier = "s";
+	}else if (count == 1){
+		number = "1";
+		verb = "Existe";
+		pluralModifier = "";
+	}else {
+		number = Integer.toString(count);
+		verb = "Existem";
+		pluralModifier = "s";
+	}
+	String guessMessage = String.format(
+	"There %s %s %s%s, verb, number, candidate, pluralModifier");
+	print(guessMessage);
+}
+/*
+*Variáveis que possuem contexto
+*/
+public class GuessStatisticsMessage{
+	private String number;
+	private String verb;
+	private String pluralModifier;
+	
+	public String make(char candidate, int count){
+		createPluralDependentMessageParts(count);
+		return String.format(
+		"There %s %s %s%s",
+		verb, number, candidate, pluralModifier);		
+	}
+	private void createPluralDependentMessageParts(int count){
+		if(count ==0){
+			thereAreNoLetters();
+		}else if (count ==1){
+			thereIsOneLetter();
+		}else {
+			thereAreManyLetters(count);
+		}
+	}
+	private void thereAreManyLetters(int count){
+		number = Integer.toString(count);
+		verb = "Existem";
+		pluralModifier = "s";
+	}
+	private void thereIsOneLetter(){
+		number = "1";
+		verb = "Existem";
+		pluralModifier = "";
+	}
+	private void thereAreNoLetters(){
+		number = "no";
+		verb = "Existem";
+		pluralModifier = "s";
+	}
+	
+}
+ 
+public static String testableHtml(
+	PageData pageData.
+	boolean includeSuiteSetup
+) throws Exception {
+	WikiPage wikiPage = pageData.getWikiPage();
+	StringBuffer buffer = new StringBuffer();
+	if(pageData.hasAttribute("Test")){
+		if(includeSuiteSetup){
+			WikiPage suiteSetup =
+				PageCrawlerImpl.getInheritedPage(
+					SuiteResponder.SUITE_SETUP_NAME, wikiPage
+		    );
+		if(suiteSetup != null){
+			WikiPagePath pagePath =
+				suiteSetup.getPageCrawler().getFullPath(suiteSetup);
+			String pagePath = 
+				
+		}
+		}
+	}
+}
+
+/*
+Funções devem ser pequenas, cada função tem que fazer apnas uma única coisa.
+Dentro da função if, else, while, entre outros, devem ter apenas uma linha,
+possivelmente a chamada de função. Estrutura Switch sempre fazem N coisas, 
+não podemos evitar-lás, mas certifique se cada um está em uma classe de baixo nível e nunca é repetido.
+*/
+
+public Money calculatePay(Employee e){
+	throws InvalidEmployeeType{
+		switch (e.type){
+			case COMMISSIONED:
+				return calculateCommissionedPay(e);
+			case HOURLY:
+				return calculateHourlyPay(e);
+			case SALARIED:
+				return calculateSalariedPay(e);
+			default:
+			throw new InvalidEmployeeType(e.type);
+		}
+	}/* Essa função é grande, e conforme o quadro de funcionário ela vai aumentar ainda mais.
+		Ela faz mais de uma coisa.Viola o princípio de Aberto-Fechado, 
+		pois precisa ser modificada sempre novos tipos forem adicionados.
+		A solução é inserir a estrutura switch em uma ABSTRACT FACTORY.
+	*/
+	
+public abstract class Employee{
+	
+	public abstract boolean isPayday();
+	public abstract Money calculatePay();
+	public abstract void deliverPay(Money pay);
+}
+/*
+A quantidade de parâmetros para uma função é zero. Depois vem monâde, em seguida díade.
+Evite três parâmetros. Passar boolean para uma função é um prática ruim, 
+pois é explicito que a função faz mais de uma coisa.
+*/
+
+public class UserValidador{
+	
+	private Cryptographer cryptographer;
+	
+	public boolean checkPassword(String username, String password){
+		User user = UserGateway.findByName(userName);
+		if (user != User.NULL) {
+			String codedPharse = User.getPharseEncodeByPassword();
+			String pharse = crytographer.decrypt(codePharse, password);
+			if("Valid Password".equals(pharse){
+				Session.initialize();
+				return true;
+			}
+		}
+		return false;
+	}
+
+/*
+O efeito colateral é chamado de Session.initialize(), ela não inicializa a sessão, 
+esse efeito colateral cria um acoplamento temporário.
+*/
+
+/*
+Separação comando-consulta - as função devem fazer ou responder algo, mas não ambos.
+Fazer funções retornarem códigos de erros é uma leve violaçãoda separação comando-consulta,
+Prefira exceções a retorno de código de erro.
+*/
+
+if (deletePage(page) == E_OK) {
+	if (registry.deleteReference(page.name) == E_OK){
+		if (configKeys.deleteKey(page.name.makeKey()) == E_OK){
+			logger.log("página excluída");
+		}else { 
+			logger.log("configKeys não foi excluída");
+		}
+		logger.log("deleteReference não foi excluída do registro");
+	}else{
+		logger.log("a exclusão falhou");
+		return E_ERROR;
+	}
+
+/* 
+Ao usar a exceções em vez de retornar códigos de erros, 
+então o tratamento de erro pode ser separado.
+*/
+
+try {
+	deletePage(page);
+	registry.deleteReference(page.name);
+	configKeys.deleteKey(page.name.makeKey());
+}
+catch (Exception e){
+	logger.log(e.getMessage();
+}
+	
+/*
+Extraia os blocos try/catch.As funções deve fazer uma coisa só.
+Classe de erro cria dependências.
+*/
+
+public void delete(Page page){
+	try{
+		deletePageAndAllReferences(page);
+	}
+	catch (Exception e){
+		logError(e);
+	}
+}
+
+private void deletePageAndAllReferences(Page page) throws Exception {
+	deletePage(page);
+	registry.deleteReference(page.name);
+	configKeys.deleteKey(page.name.makeKey());
+}
+
+private void logError(Exception e){
+	logger.log(e.getMessage());
+}
+
+/*
+Código claro e expressivos com poucos comentários são superiores a muitos comentários.
+Explicar o código pelo comentário é ruim.
+Certos comentários são necessários e benéficos, mas sempre que for possível,
+usar o nome da função para transmitir a informação.
+A maioria dos comentários são ruins pois não são atualizados ao longo do tempo,
+e podem levar ao erro se não estiverem bem objetivo.
+Alguns comentários são redundantes. 
+Evite o comentário se for possível usar uma função ou uma variável.
+*/
+
+/*
+Formatação do código.
+Declaração das variáveis - Todas as variáveis devem ser declaradas antes que possam ser usadas. Declarar uma variável significa criá-la em algum ponto do programa.
+Variáveis de Classe - Variáveis declaradas como estáticas são variáveis compartilhadas entre todos os objetos instanciados a partir de uma classe. 
+*/
+
+/*
+Variáveis Locais - Podem ser utilizadas dentro do método onde foram declaradas, não sendo acessíveis de outros pontos do programa.
+*/
+private static void readPreferences(){
+	inputStream is = null
+	try{
+		is = new FileInputStream(getPreferencesFile());
+		setPreferences(new Properties(getPreferences());
+		getPreferences().load(is);
+	}catch (IOException e) {
+		try{
+			if (is != null){
+				is.close();
+			}catch (IOException e1){
+			}
+		}
+	}
+
+public int countTestCases(){
+	int count = 0;
+	for (Test each : tests){
+		count += each.countTestCases();
+	}
+	return count;
+}
+
+/*
+Instancias de variaveis devem ser declaradas no ínicio da classe.
+funções dependentes devem ficar verticalmente próximas.
+*/
+
+public class WikiPageResponder implements SecureResponder{
+	protected WikiPage page;
+	protected PageData pageData;
+	protected String pageTitle;
+	protected Request request;
+	protected PageCrawler crawler;
+	
+	public Response makeResponse(FitNesseContext context, Request request) 
+		throws Exception {
+		String pageName = getNameOrDefault(request, "FrontPage");
+		loadPage(pageName, context);			
+		if(page == null){
+			return notFoundResponse(context, request);
+		}else{
+			return makePageResponse(context);
+		}
+	}
+		
+	private String getPageNameOrDefault(Resquest request, String defaultPageName){
+		
+		String PageName = request.getResource();
+		if (StringUtil.isBlank(pageName)){
+			pageName = defaultPageName;
+		}
+		return pageName;
+	}
+	
+	protected Response notFoundResponse(FitNesseContext context, Request request)
+		throws Exception {
+			return new NotFoundResponder().makeResponse(context, request);
+	}
+	
+	private SimpleReponse makePageResponse(FitNesseContext context)
+		throws Exception {
+			pageTitle = PathParser.render(crawler.getFullPath(page));
+		String html = makeHtml (context);
+		
+		SimpleReponse response = new SimpleResponse();
+		reponse.setMaxAge(0);
+		reponse.setContent(html);
+		return response;
+	}
+	
+	
+}
+
+
+
+
+
