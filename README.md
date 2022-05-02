@@ -485,6 +485,8 @@ private void addExceptionAndCloseResponse(Exception e){
 	try{
 		response.add(ErrorResponder.makeExceptionString(e){
 		    response.closeAll();
-		}catch(Exception e1){		
+	    }
+        catch(Exception e1){            
+        }
 	}	
 }</code></pre>
