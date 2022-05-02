@@ -15,7 +15,9 @@ Repositório público para estudo de boas práticas de programação.
     2009.</q>
 
 <h1>O que é um código limpo?</h1>
-<q>Você sabe que está criando um código limpo quando cada rotina que você leia se mostra como o que você esperava. Você pode chamar de código belo quando ele também faz parecer que a linguagem foi feita para o problema - Ward Cunningham.</q>
+<q>Você sabe que está criando um código limpo quando cada rotina que você leia se mostra como o que você esperava. Você
+    pode chamar de código belo quando ele também faz parecer que a linguagem foi feita para o problema - Ward
+    Cunningham.</q>
 
 <h2>A regra de escoteiro</h2>
 <p>
@@ -129,7 +131,8 @@ int fileAgeInDays;</code></pre>
 
 <h2>Padrões</h2>
 
-<p>Nome de classes: devem ser substantivos: Cliente, PaginaWiki, Conta, e AnaliseEndereço. Nome de métodos: devem ser verbos: postarPagamento, excluirPagina, salvar.</p>
+<p>Nome de classes: devem ser substantivos: Cliente, PaginaWiki, Conta, e AnaliseEndereço. Nome de métodos: devem ser
+    verbos: postarPagamento, excluirPagina, salvar.</p>
 
 <pre><code>String name = employee.getName();
     customer.setName("mike");
@@ -137,7 +140,8 @@ int fileAgeInDays;</code></pre>
         /*....*/
 }</code></pre>
 
-<p>Quando os construtores estiverem sobrecarregados, use métodos factory estáticos, com nomes que descrevam os parâmetros.</p>
+<p>Quando os construtores estiverem sobrecarregados, use métodos factory estáticos, com nomes que descrevam os
+    parâmetros.</p>
 
 <pre><code>Complex fulcrumPoint = Complex.FromRealNumber(23,0);</code></pre>
 <pre><code>Complex fulcrumPoint = new Complex(23,0);</code></pre>
@@ -223,11 +227,15 @@ int fileAgeInDays;</code></pre>
 <h2>Funções</h2>
 
 <p align="justify">
-    Funções devem ser pequenas, cada função tem que fazer apenas uma única coisa. Dentro da função if, else, while, entre outros, devem ter apenas uma linha, possivelmente a chamada de função. Estrutura Switch sempre fazem N coisas, não podemos evitá-lás, mas certifique se cada um está em uma classe de baixo nível e nunca é repetido.
+    Funções devem ser pequenas, cada função tem que fazer apenas uma única coisa. Dentro da função if, else, while,
+    entre outros, devem ter apenas uma linha, possivelmente a chamada de função. Estrutura Switch sempre fazem N coisas,
+    não podemos evitá-lás, mas certifique se cada um está em uma classe de baixo nível e nunca é repetido.
 </p>
 
 <p>
-    Essa função abaixo é grande, e conforme o quadro de funcionário ela vai aumentar ainda mais. Ela faz mais de uma coisa. Viola o princípio de Aberto-Fechado, pois precisa ser modificada sempre novos tipos forem adicionados. A solução é inserir a estrutura switch em uma ABSTRACT FACTORY.
+    Essa função abaixo é grande, e conforme o quadro de funcionário ela vai aumentar ainda mais. Ela faz mais de uma
+    coisa. Viola o princípio de Aberto-Fechado, pois precisa ser modificada sempre novos tipos forem adicionados. A
+    solução é inserir a estrutura switch em uma ABSTRACT FACTORY.
 </p>
 
 <pre><code>public Money calculatePay(Employee e){
@@ -254,7 +262,8 @@ int fileAgeInDays;</code></pre>
 
 <h2>Parâmetros</h2>
 
-<p>A quantidade de parâmetros para uma função é zero. Depois vem mônada, em seguida díade. Evite três parâmetros. Passar boolean para uma função é uma prática ruim, pois é explícito que a função faz mais de uma coisa.</p>
+<p>A quantidade de parâmetros para uma função é zero. Depois vem mônada, em seguida díade. Evite três parâmetros. Passar
+    boolean para uma função é uma prática ruim, pois é explícito que a função faz mais de uma coisa.</p>
 
 <pre><code>public class UserValidador{
 	
@@ -276,7 +285,10 @@ int fileAgeInDays;</code></pre>
 
 <h2>Efeito colateral</h2>
 
-<p>O efeito colateral é chamado de Session.initialize(), ela não inicializa a sessão, esse efeito colateral cria um acoplamento temporário. Separação, comando, consulta, as função devem fazer ou responder algo, mas não ambos. Fazer funções retornarem códigos de erros é uma leve violação da separação comando-consulta, Prefira exceções a retorno de código de erro.</p>
+<p>O efeito colateral é chamado de Session.initialize(), ela não inicializa a sessão, esse efeito colateral cria um
+    acoplamento temporário. Separação, comando, consulta, as função devem fazer ou responder algo, mas não ambos. Fazer
+    funções retornarem códigos de erros é uma leve violação da separação comando-consulta, Prefira exceções a retorno de
+    código de erro.</p>
 
 <pre><code>if (deletePage(page) == E_OK) {
 	if (registry.deleteReference(page.name) == E_OK){
@@ -328,13 +340,20 @@ catch (Exception e){
 
 <h1>Comentários</h1>
 
-<p>Código claro e expressivos com poucos comentários são superiores a muitos comentários. Explicar o código pelo comentário é ruim. Certos comentários são necessários e benéficos, mas sempre que for possível, usar o nome da função para transmitir a informação. A maioria dos comentários são ruins pois não são atualizados ao longo do tempo, e podem levar ao erro se não estiverem bem objetivo. Alguns comentários são redundantes. Evite o comentário se for possível usar uma função ou uma variável.</p>
+<p>Código claro e expressivos com poucos comentários são superiores a muitos comentários. Explicar o código pelo
+    comentário é ruim. Certos comentários são necessários e benéficos, mas sempre que for possível, usar o nome da
+    função para transmitir a informação. A maioria dos comentários são ruins pois não são atualizados ao longo do tempo,
+    e podem levar ao erro se não estiverem bem objetivo. Alguns comentários são redundantes. Evite o comentário se for
+    possível usar uma função ou uma variável.</p>
 
 <h2>Formatação do código</h2>
 
-<p>Declaração das variáveis - Todas as variáveis devem ser declaradas antes que possam ser usadas. Declarar uma variável significa criá-la em algum ponto do programa. Variáveis de Classe - Variáveis declaradas como estáticas são variáveis compartilhadas entre todos os objetos instanciados a partir de uma classe.</p>
+<p>Declaração das variáveis - Todas as variáveis devem ser declaradas antes que possam ser usadas. Declarar uma variável
+    significa criá-la em algum ponto do programa. Variáveis de Classe - Variáveis declaradas como estáticas são
+    variáveis compartilhadas entre todos os objetos instanciados a partir de uma classe.</p>
 
-<p>Variáveis Locais - Podem ser utilizadas dentro do método onde foram declaradas, não sendo acessíveis de outros pontos do programa.</p>
+<p>Variáveis Locais - Podem ser utilizadas dentro do método onde foram declaradas, não sendo acessíveis de outros pontos
+    do programa.</p>
 
 <pre><code>private static void readPreferences(){
 	inputStream is = null
@@ -360,7 +379,8 @@ catch (Exception e){
 	return count;
 }</code></pre>
 
-<p>Instâncias de variáveis devem ser declaradas no início da classe. funções dependentes devem ficar verticalmente próximas.</p>
+<p>Instâncias de variáveis devem ser declaradas no início da classe. funções dependentes devem ficar verticalmente
+    próximas.</p>
 
 <pre><code>public class WikiPageResponder implements SecureResponder{
 	protected WikiPage page;
@@ -435,7 +455,7 @@ catch (Exception e){
     <li>Cometários imperativos</li>
     <li>Comentários longos</li>
     <li>Comentários ruidosos</li>
-</ul> 
+</ul>
 
 <h2>Exemplo de um comentário ruim</h2>
 <pre><code>/**
@@ -471,22 +491,20 @@ public int getDayOfMonth(){
 	try{
 		doSending();
 	}	
-	    catch(SocketException e){
-        }
-        catch(Exception e){
-		
-		    addExceptionAndCloseResponse(e);
-        }	
-	}	
+	catch(SocketException e){    
+    }
+    catch(Exception e){		
+	    addExceptionAndCloseResponse(e);
+    }		
 }
 
 private void addExceptionAndCloseResponse(Exception e){
 	
 	try{
 		response.add(ErrorResponder.makeExceptionString(e){
-		    response.closeAll();
+            response.closeAll();
 	    }
-        catch(Exception e1){            
-        }
-	}	
+    }
+    catch(Exception e1){            
+    }
 }</code></pre>
