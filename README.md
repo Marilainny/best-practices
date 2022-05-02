@@ -462,7 +462,7 @@ public int getDayOfMonth(){
 			    response.closeAll();
 			}			
 		}
-            catch(Exception e1){            		
+        catch(Exception e1){            		
 		}		
 	}
 }</code></pre>
@@ -472,12 +472,10 @@ public int getDayOfMonth(){
 		doSending();
 	}	
 	    catch(SocketException e){
-            
         }
-        
         catch(Exception e){
 		
-		        addExceptionAndCloseResponse(e);
+		    addExceptionAndCloseResponse(e);
         }	
 	}	
 }
