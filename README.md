@@ -239,7 +239,7 @@ int fileAgeInDays;</code></pre>
 				return calculateHourlyPay(e);
 			case SALARIED:
 				return calculateSalariedPay(e);
-			default:
+			    default:
 			throw new InvalidEmployeeType(e.type);
 		}
     }
@@ -406,3 +406,87 @@ catch (Exception e){
 	}	
 }</code></pre>
 
+<h2>Destaque</h2>
+<p>Pode-se usar um comentário para destacar a importância de algo</p>
+<pre><code>/*A função trim é muito importante. Ela remove os espaços iniciais,
+    que poderiam fazer com que o item fosse reconhecido como outra lista.
+    */
+    String listItemContent = match.group(3).trim();
+    new ListItemWidget(this, listItemContent, this.level + 1);
+    return buildList(text.substring(match.end());</code></pre>
+<h2>Comentário Enigma</h2>
+<p>O autor com pressa ou não prestava atenção, deixou um enigma como comentário.</p>
+<pre><code>public void loadProperties(){
+	try{
+		String propertiesPath = 
+			propertiesLocation + "/" + PROPERTIES_FILE;
+		FileInputStream propertiesStream =
+			new FileInputStream(propertiesPath);
+		loadedProperties.load(propertiesStream);
+	}
+	catch(IOException e){	
+	}
+	//Nenhum arquivo de propriedades significa que todos os padrões estão carregados.
+}</code></pre>
+<h2>Evite</h2>
+<ul type="disk">
+    <li>Comentários redundantes</li>
+    <li>Cometários enganadores</li>
+    <li>Cometários imperativos</li>
+    <li>Comentários longos</li>
+    <li>Comentários ruidosos</li>
+</ul> 
+
+<h2>Exemplo de um comentário ruim</h2>
+<pre><code>/**
+    retorno do dia do mês
+        
+    @return o dia do mês
+*/
+public int getDayOfMonth(){
+    return dayOfMonth
+}</code></pre>
+<h2>Try/Catch em uma função separada</h2>
+<p>Exemplo incorreto</p>
+<pre><code>private void startSending(){
+	try{
+		doSending();
+	}
+    catch(SocketException e){
+		
+	}
+    catch(Exception e){
+
+		try{
+			response.add(ErrorResponder.makeExceptionString(e){
+			    response.closeAll();
+			}			
+		}
+            catch(Exception e1){            		
+		}		
+	}
+}</code></pre>
+<p>Exemplo refatorado</p>
+<pre><code>private void startSending(){
+	try{
+		doSending();
+	}	
+	    catch(SocketException e){
+            
+        }
+        
+        catch(Exception e){
+		
+		        addExceptionAndCloseResponse(e);
+        }	
+	}	
+}
+
+private void addExceptionAndCloseResponse(Exception e){
+	
+	try{
+		response.add(ErrorResponder.makeExceptionString(e){
+		    response.closeAll();
+		}catch(Exception e1){		
+	}	
+}</code></pre>
